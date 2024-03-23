@@ -1,0 +1,74 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Sklep książkowy</title> <script src="https://cdn.tailwindcss.com"></script> <style> /* Additional CSS can be placed here */ </style> </head> <body class="bg-gray-100"> <!-- Header --> <header class="bg-white shadow"> <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"> <h1 class="text-3xl font-bold text-gray-900"> Sklep książkowy </h1> </div> </header>
+<!-- Main content -->
+<main>
+    <div class="max-w-2xl mx-auto py-6 sm:px-6 lg:px-8">
+        <!-- Replace with your content -->
+        <div class="px-4 py-6 sm:px-0">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Book item -->
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="p-4">
+                        <img src="https://source.unsplash.com/featured/?book" alt="Book Image" class="w-full h-64 object-cover">
+                        <h2 class="mt-2 font-bold text-xl">Book Title</h2>
+                        <p class="mt-1 text-gray-500">Author Name</p>
+                        <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Book item -->
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="p-4">
+                        <img src="https://source.unsplash.com/featured/?novel" alt="Book Image" class="w-full h-64 object-cover">
+                        <h2 class="mt-2 font-bold text-xl">Book Title</h2>
+                        <p class="mt-1 text-gray-500">Author Name</p>
+                        <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Book item -->
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="p-4">
+                        <img src="https://source.unsplash.com/featured/?fiction" alt="Book Image" class="w-full h-64 object-cover">
+                        <h2 class="mt-2 font-bold text-xl">Book Title</h2>
+                        <p class="mt-1 text-gray-500">Author Name</p>
+                        <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Book item -->
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="p-4">
+                        <img src="https://source.unsplash.com/featured/?literature" alt="Book Image" class="w-full h-64 object-cover">
+                        <h2 class="mt-2 font-bold text-xl">Book Title</h2>
+                        <p class="mt-1 text-gray-500">Author Name</p>
+                        <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Book item -->
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="p-4">
+                        <img src="https://source.unsplash.com/featured/?books" alt="Book Image" class="w-full h-64 object-cover">
+                        <h2 class="mt-2 font-bold text-xl">Book Title</h2>
+                        <p class="mt-1 text-gray-500">Author Name</p>
+                        <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /End replace -->
+    </div>
+</main>
+
+<script>
+    // JavaScript for interactive features
+    function addToCart(button) {
+        // Placeholder functionality for adding to cart
+        button.innerText = 'Added';
+        button.disabled = true;
+        button.classList.add('bg-gray-400', 'hover:bg-gray-400');
+        button.classList.remove('bg-blue-500', 'hover:bg-blue-600');
+        // In a real application, you would also handle the cart logic here
+    }
+</script>
+</body> </html>

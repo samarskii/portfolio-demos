@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pomodoro & To-Do App</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Additional styles can be placed here */
+</style>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+<div class="container mx-auto p-8">
+  <div class="flex flex-wrap justify-center">
+    <!-- Pomodoro Timer -->
+    <div class="w-full md:w-1/2 lg:w-1/3 p-4">
+      <div class="bg-white rounded-lg shadow-xl p-6 text-center">
+        <img src="https://source.unsplash.com/featured/?clock" alt="Clock" class="w-full rounded-lg mb-4">
+        <div id="timer" class="text-4xl font-semibold mb-4">25:00</div>
+        <button id="startTimer" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Start</button>
+        <button id="resetTimer" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-2">Reset</button>
+      </div>
+    </div>
+
+    <!-- To-Do List -->
+    <div class="w-full md:w-1/2 lg:w-1/3 p-4">
+      <div class="bg-white rounded-lg shadow-xl p-6">
+        <h2 class="text-2xl font-bold mb-4">To-Do List</h2>
+        <ul id="todoList" class="list-disc list-inside mb-4">
+          <!-- To-Do Items will be added here -->
+        </ul>
+        <input type="text" id="newTask" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Add new task...">
+        <button id="addTask" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4">Add Task</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // JavaScript for Pomodoro Timer
+  let timerInterval;
+  const timerDisplay = document.getElementById('timer');
+  const startButton = document.getElementById('startTimer');
+  const resetButton = document.getElementById('resetTimer');
+  let timeLeft = 25 * 60; // 25 minutes
+
+  function updateTimerDisplay() {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  }
+
+  function startTimer() {
+    if (timerInterval) return;
+    timerInterval = setInterval(() => {
+      timeLeft--;
+      updateTimerDisplay();
+      if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        alert('Time is up!');
+      }
+    }, 1000);
+  }
+
+  function resetTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    timeLeft = 25 * 60;
+    updateTimerDisplay();
+  }
+
+  startButton.addEventListener('click', startTimer);
+  resetButton.addEventListener('click', resetTimer);
+
+  // JavaScript for To-Do List
+  const todoList = document.getElementById('todoList');
+  const newTaskInput = document.getElementById('newTask');
+  const addTaskButton = document.getElementById('addTask');
+
+  function addTask() {
+    const taskText = newTaskInput.value.trim();
+    if (taskText) {
+      const listItem = document.createElement('li');
+      listItem.textContent = taskText;
+      todoList.appendChild(listItem);
+      newTaskInput.value = '';
+    }
+  }
+
+  addTaskButton.addEventListener('click', addTask);
+  newTaskInput.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      addTask();
+    }
+  });
+
+  updateTimerDisplay();
+</script>
+
+</body>
+</html>
